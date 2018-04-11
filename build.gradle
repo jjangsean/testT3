@@ -22,13 +22,10 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
-
-task ls (type: Exec) {
-    commandLine 'cmd', '/c', 'dir'
+    
+task copyFile (type: Copy) {
+    from ¡®src/main/java¡¯
+    into ¡®testfile/java¡¯
 }
 
-task InitGit {
-    doLast {
-        def git = grgit.Grgit.open(dir: project.file('git'))
-    }
-}
+defaultTasks ¡®copyFile¡¯
